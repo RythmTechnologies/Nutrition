@@ -1,10 +1,48 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}iletişim{% endblock title %}
+{% block title %}Diyetisyenin ile İletişime geç!{% endblock title %}
 
 {% block content %}
-iletişim
+<div class="container my-5">
+    {% if messages %}
+    <div class="row">
+        <div class="col-12">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="mb-4">Diyetisyen İletişim</h2>
+            <p>Size daha iyi hizmet sunabilmek için lütfen iletişim formunu doldurunuz.</p>
+            <form method="post" class="contact-form">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="btn btn-primary">Gönder</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h3 class="mb-3">Diğer İletişim Yolları</h3>
+            <p><strong>Telefon:</strong> +90 123 456 78 90</p>
+            <p><strong>E-posta:</strong> info@diyetisyeniniz.com</p>
+            <p><strong>Adres:</strong> Örnek Mahallesi, Sağlıklı Sokak No: 5, İstanbul</p>
 
+            <h3 class="mb-3">Çalışma Saatleri</h3>
+            <p>Pazartesi - Cuma: 09:00 - 18:00</p>
+            <p>Cumartesi: 10:00 - 14:00</p>
+            <p>Pazar: Kapalı</p>
 
+            <div class="map-section mt-4">
+                <h3>Konumumuz</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.34891253085!2d28.554291075124905!3d41.017621871349235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b55d50ac89d641%3A0xb6034fc4db9c2051!2sDiyetisyen%20Seda%20Nur%20%C3%87%C4%B1ray!5e0!3m2!1str!2str!4v1706732773427!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
