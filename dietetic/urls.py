@@ -20,10 +20,10 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('apps.diet_app.urls')),
-    path('hakkımda/',include('apps.about.urls')),
+    path('hakkimda/',include('apps.about.urls')),
     path('paketler/',include('apps.packages.urls')),
     path('hizmetler/',include('apps.services.urls')),
-    path('iletişim/',include('apps.contact.urls')),
+    path('iletisim/',include('apps.contact.urls')),
     path('', TemplateView.as_view(template_name='index.html', extra_context={
         "instagram_profile_name": "dytsedanurciray"
     })),
