@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Ana Sayfa{% endblock title %}
+
+{% block content %}
+
+{% include "Components/carousel.html" %}
+<div class="container my-5">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="mb-3">Profesyonel Diyet Danışmanlığı</h2>
+                <p>Ben [Diyetisyen Adı], sağlıklı yaşam ve beslenme konusunda uzman bir diyetisyenim. Kişiye özel diyet planları, sağlıklı yaşam tavsiyeleri ve beslenme koçluğu hizmetleri sunuyorum.</p>
+                <p>Birlikte, sağlıklı beslenme alışkanlıkları geliştirebilir, ideal kilonuza ulaşabilir ve daha enerjik bir yaşam sürebilirsiniz.</p>
+                
+            </div>
+            <div class="col-lg-6">
+                <img src={% static "images/diyet.jpg" %} class="img-fluid" alt="Diyetisyen">
+            </div>
+        </div>
+   
+
+    <!-- Hizmetler Bölümü -->
+    
+        <h3 class="text-center mb-4 py-5">Hizmetlerim</h3>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 text-center">
+                <img src="{% static 'images/diyet.jpg' %}" class="bd-placeholder-img rounded-circle object-fit-cover " width="140" height="140" alt="Diyet">
+              <h3 class="fw-normal mb-4">Heading</h3>
+              <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+              <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4 text-center">
+                <img src="{% static 'images/diyet.jpg' %}" class="bd-placeholder-img rounded-circle object-fit-cover" width="140" height="140" alt="Diyet">
+              <h3 class="fw-normal mb-4">Heading</h3>
+              <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+              <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4 text-center">
+                <img src="{% static 'images/diyet.jpg' %}" class="bd-placeholder-img rounded-circle object-fit-cover" width="140" height="140" alt="Diyet">
+              <h3 class="fw-normal mb-4">Heading</h3>
+              <p>And lastly this, the third column of representative placeholder content.</p>
+              <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+          </div>
+    </div>
+
+   
+    
+{% endblock content %}
