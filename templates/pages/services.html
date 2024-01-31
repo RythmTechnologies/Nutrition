@@ -9,98 +9,27 @@
 <div class="wrapper">
     
     <div class="row">
-             
-              <div class="col-md-4 space " ontouchstart="this.classList.toggle('hover');">
-                  <div class="container">
-                      <div class="front" style="background-image: url(https://unsplash.it/502/502/)">
-                          <div class="inner">
-                              <p>Spor diyeti</p>
-                <span>Lorem ipsum</span>
-                          </div>
-                      </div>
-                      <div class="back">
-                          <div class="inner">
-                              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4 space " ontouchstart="this.classList.toggle('hover');">
-                  <div class="container ">
-                      <div class="front" style="background-image: url(https://unsplash.it/503/503/)">
-                          <div class="inner">
-                              <p>Kas yapma</p>
-                <span>Lorem ipsum</span>
-                          </div>
-                      </div>
-                      <div class="back">
-                          <div class="inner">
-                              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4 space" ontouchstart="this.classList.toggle('hover');">
-                  <div class="container">
-                      <div class="front" style="background-image: url(https://unsplash.it/504/504/">
-                          <div class="inner">
-                              <p>Sıkılaşma</p>
-                <span>Lorem ipsum</span>
-                          </div>
-                      </div>
-                      <div class="back">
-                          <div class="inner">
-                              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4 space"  ontouchstart="this.classList.toggle('hover');">
-                  <div class="container">
-                      <div class="front" style="background-image: url(https://unsplash.it/505/505/)">
-                          <div class="inner">
-                              <p>Bölgesel incelme</p>
-                <span>Lorem ipsum</span>
-                          </div>
-                      </div>
-                      <div class="back">
-                          <div class="inner">
-                              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4 space" ontouchstart="this.classList.toggle('hover');">
-                  <div class="container">
-                      <div class="front" style="background-image: url(https://unsplash.it/506/506/)">
-                          <div class="inner">
-                              <p>Görüşme</p>
-                <span>Lorem ipsum</span>
-                          </div>
-                      </div>
-                      <div class="back">
-                          <div class="inner">
-                              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4 space" ontouchstart="this.classList.toggle('hover');">
-                  <div class="container">
-                      <div class="front" style="background-image: url(https://unsplash.it/508/508/)">
-                          <div class="inner">
-                              <p>Tanışma</p>
-                <span>Lorem ipsum</span>
-                          </div>
-                      </div>
-                      <div class="back">
-                          <div class="inner">
-                              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+             {% for service in services %}
+               
+             <div class="col-md-4 space " ontouchstart="this.classList.toggle('hover');">
+                 <div class="container">
+                    <a href="{% url 'spor-diyeti' service.id %}">
+                     <div class="front" style="background-image: url({{service.image.url}})">
+                         <div class="inner">
+                             <p>{{service.title}}</p>
+                             <span>{{service.short_description|safe}}</span>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="inner">
+                                <p>{{service.short_second_description|safe}}</p>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
    </div>
 </div>
 {% endblock content %}
