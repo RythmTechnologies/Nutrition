@@ -3,6 +3,7 @@
 *.pot
 *.pyc
 __pycache__
+hay_amk
 db.sqlite3
 media
 
