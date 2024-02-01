@@ -1,21 +1,19 @@
-body{background: #eee;}
+
 svg {
   height: 65vmin;
   border: 1px solid #eee;
-
   background: #fff;
   border-radius: 10px;
   box-shadow: 0px 0px 15px 3px #ccc;
 }
+
 text {
   text-anchor: middle;
   dominant-baseline: central;
   font-family: 'Permanent Marker';
   font-size: 3em;
 }
-text::selection {
-  background: none;
-}
+
 
 .dark-skin {
   fill: #efab7d;
