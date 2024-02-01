@@ -4,6 +4,7 @@
 <div class="row mt-5 justify-content-center mb-5">
     {% for service in services %}
     <div class="col-md-4">
+        
         <a href="{% url 'spor-diyeti' service.slug %}">
         <div class="blog" style="background: url({{service.image.url}})
         no-repeat;">
