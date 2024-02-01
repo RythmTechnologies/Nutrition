@@ -1,35 +1,25 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block title %}iletişim{% endblock title %}
-
-{% block content %}
-<link rel="stylesheet" href={% static "css/services.css" %}>
-<div style="margin-top: 100px;">
-<div class="wrapper">
-    
-    <div class="row">
-             {% for service in services %}
-               
-             <div class="col-md-4 space " ontouchstart="this.classList.toggle('hover');">
-                 <div class="container">
-                    <a href="{% url 'spor-diyeti' service.id %}">
-                     <div class="front" style="background-image: url({{service.image.url}})">
-                         <div class="inner">
-                             <p>{{service.title}}</p>
-                             <span>{{service.short_description|safe}}</span>
-                            </div>
-                        </div>
-                        <div class="back">
-                            <div class="inner">
-                                <p>{{service.short_second_description|safe}}</p>
-                            </div>
-                        </div>
-                    </a>
-                    </div>
-                </div>
-                {% endfor %}
+{% extends 'base.html' %} {% load static %} {% block title %} Servisler 
+{% endblock title %} {% block content %} 
+<link rel="stylesheet" href={% static "css/services.css" %} />
+<div class="row mt-5 justify-content-center mb-5">
+    {% for service in services %}
+    <div class="col-md-4">
+        <a href="{% url 'spor-diyeti' service.slug %}">
+        <div class="blog" style="background: url({{service.image.url}})
+        no-repeat;">
+            <div class="title-box">
+                <h3>{{service.title}}</h3>
+                <hr />
+                <div class="intro">{{service.short_description|safe}}</div>
             </div>
-   </div>
+            <div class="info">
+                <span>{{service.short_second_description|safe}}</span>
+            </div>
+            <div class="color-overlay"></div>
+        </div>
+        </a>
+    </div>
+    {% endfor %}
 </div>
 {% endblock content %}
+

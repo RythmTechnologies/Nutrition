@@ -9,7 +9,7 @@ media
 
 # Backup files # 
 *.bak 
-
+apps/**/migrations/**
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py
