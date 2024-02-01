@@ -3,11 +3,16 @@
 *.pot
 *.pyc
 __pycache__
+hay_amk
 db.sqlite3
 media
 
 # Backup files # 
 *.bak 
+
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
 
 # If you are using PyCharm # 
 # User-specific stuff
