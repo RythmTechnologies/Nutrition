@@ -10,9 +10,9 @@ def services(request: HttpRequest) -> HttpResponse:
     return render(request, 'pages/services.html', context)
 
 
-def services_spor(request: HttpRequest, id: int) -> RedirectOrResponse:
+def services_spor(request: HttpRequest, slug: str) -> RedirectOrResponse:
     context = {}
-    model_filter = Services.objects.filter(id = id).first()
+    model_filter = Services.objects.filter(slug = slug).first()
     if not model_filter:
         return redirect('services')
     else:
