@@ -9,7 +9,6 @@ urlpatterns = [
     path('',include('apps.diet_app.urls')),
     path('hakkimda/',include('apps.about.urls')),
     path('paketler/',include('apps.packages.urls')),
-    path('hizmetler/',include('apps.services.urls')),
     path('iletisim/',include('apps.contact.urls')),
     path('', TemplateView.as_view(template_name='index.html', extra_context={
         "instagram_profile_name": "dytsedanurciray"

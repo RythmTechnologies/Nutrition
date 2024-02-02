@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'apps.diet_app',
     'apps.about',
     'apps.packages',
-    'apps.services',
     'apps.contact',
     'ckeditor',
 

@@ -1,0 +1,4 @@
+#selection > div > div > div > div > div > div > div ~ div > div{
+    display: none !important;
+   
+  }
