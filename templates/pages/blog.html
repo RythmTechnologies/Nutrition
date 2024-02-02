@@ -7,27 +7,28 @@ Blog
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 <div class="container">
-  <div class="row justify-content-center mt-5">
+  <div class="row justify-content-center mt-5 ">
     <img src="https://media.discordapp.net/attachments/1101190679402659910/1203047122463883264/Group_1.png?ex=65cfabf1&is=65bd36f1&hm=75c663b5962ad34dc2a1d2c9dbcf0502927d5e6ba2b5ec1891fe715bb816d89b&=&format=webp&quality=lossless&width=2162&height=720" class="rounded-5 mb-5" alt="Banner Bulunamadı">
   </div>
-  <section class="mb-5">
-    <div class="container py-4">
-      <h1 class="h1 text-center" id="pageHeaderTitle">Blog</h1>
+  <section class="mb-5 mt-5">
+    <div class="container py-4 ">
       {% for blog in blogs %}
-
       <article class="postcard dark blue">
         <a class="postcard__img_link" href="{% url 'blog-icerik' blog.slug %}">
           <img class="postcard__img" src="{{blog.image.url}}" alt="Image Title" />
         </a>
         <div class="postcard__text">
-          <h1 class="postcard__title blue"><a href="#">{{blog.title}}</a></h1>
+          <h1 class="postcard__title blue"><a  class=" mx-1" href={% url "blog-icerik" blog.slug %}>{{blog.title}}</a></h1>
           <div class="postcard__subtitle small">
             <time datetime="{{blog.created_at}}">
               <i class="fas fa-calendar-alt mr-2"></i> {{blog.created_at}}
             </time>
           </div>
           <div class="postcard__bar"></div>
-          <div class="postcard__preview-txt">{{blog.description|safe}}</div>
+          <div class="postcard__preview-txt">{{blog.description|safe|truncatewords_html:50}}</div>
+          {% if blog.description|wordcount > 50 %}
+            <a href="{% url 'blog-icerik' blog.slug %}">...</a>
+          {% endif %}
           <ul class="postcard__tagbox">
             <li class="tag__item"><i class="fas fa-tag mr-2"></i> {{blog.category}}</li>
             <li class="tag__item"><i class="fa-solid fa-at"></i> {{blog.author}}</li>
