@@ -1,23 +1,19 @@
 {% load static %}
 
 
-<section class="game-section">
-
+<section class="game-section ">
+ 
     <div class="owl-carousel custom-carousel owl-theme">
-      <div class="item active" style="background-image: url(https://www.yudiz.com/codepen/expandable-animated-card-slider/dota-2.jpg);">
+
+      {% for slider in sliders %}
+      <div class="item {% if forloop.first %}active{% endif %}" style="background-image: url({{ slider.photo.url }});">
         <div class="item-desc">
-          <h3>Dota 2</h3>
-          <p>Dota 2 is a multiplayer online battle arena by Valve. The game is a sequel to Defense of the
-            Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.</p>
+          <h3>{{ slider.header }}</h3>
+          <p>{{ slider.content|safe }}</p>
         </div>
       </div>
-      <div class="item" style="background-image: url(https://www.yudiz.com/codepen/expandable-animated-card-slider/winter-3.jpg);">
-        <div class="item-desc">
-          <h3>The Witcher 3</h3>
-          <p>The Witcher 3 is a multiplayer online battle arena by Valve. The game is a sequel to Defense
-            of the Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.</p>
-        </div>
-      </div>
+    {% endfor %}
+    
       
     </div>
     </div>

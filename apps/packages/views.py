@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from .models import Packages
 # Create your views here.
 def packages(request):
-    return render(request, 'pages/packages.html')
+    packages = Packages.objects.all()
+    return render(request, 'pages/packages.html',{"packages":packages,})

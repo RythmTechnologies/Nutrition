@@ -1,15 +1,25 @@
 from django.db import models
+from ckeditor.fields import RichTextField
+from apps.diet_app.mixin import TimeBasedStampModel
 
-class AboutMe(models.Model):
-    full_name = models.CharField(max_length=100, verbose_name="Ad Soyad")
-    bio = models.TextField(verbose_name="Hakkımda")
-    email = models.EmailField(verbose_name="E-posta")
-    phone = models.CharField(max_length=20, verbose_name="Telefon")
-    image = models.ImageField(upload_to="about/images/", verbose_name="Profil Fotoğrafı")
+class AboutMe(TimeBasedStampModel):
+    bio = RichTextField(("Hakkımda içerik"))
+    image = models.ImageField(upload_to="about/", verbose_name="Profil Fotoğrafı")
 
     def __str__(self):
-        return self.full_name
+        return self.bio
 
     class Meta:
         verbose_name = "Hakkımda"
         verbose_name_plural = "Hakkımda"
+
+class Sertifica(TimeBasedStampModel):
+    header = models.CharField(("sertifika başlık"), max_length=50)
+    content = RichTextField(("sertifika içerik"))
+
+    def __str__(self):
+        return self.header
+
+    class Meta:
+        verbose_name = "Sertifika"
+        verbose_name_plural = "Sertifika"

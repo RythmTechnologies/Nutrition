@@ -9,3 +9,6 @@ class Contact(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.email}"
+    class Meta:
+        verbose_name = "iletişim"
+        verbose_name_plural = "iletişim"
