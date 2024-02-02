@@ -39,9 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.diet_app',
     'apps.about',
-    'apps.packages',
+    'apps.services',
     'apps.contact',
     'ckeditor',
+    
 
 ]
 

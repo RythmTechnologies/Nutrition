@@ -6,8 +6,10 @@
     <div class="col-md-4">
         
         <a href="{% url 'spor-diyeti' service.slug %}">
+            
         <div class="blog" style="background: url({{service.image.url}})
         no-repeat;">
+       
             <div class="title-box">
                 <h3>{{service.title}}</h3>
                 <hr />
@@ -23,4 +25,3 @@
     {% endfor %}
 </div>
 {% endblock content %}
-
