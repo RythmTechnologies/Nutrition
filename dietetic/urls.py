@@ -9,8 +9,9 @@ urlpatterns = [
     path('',include('apps.diet_app.urls')),
     path('hakkimda/',include('apps.about.urls')),
     path('hizmetler/',include('apps.services.urls')),
+    path('blog/',include('apps.blog.urls')),
     path('iletisim/',include('apps.contact.urls')),
-    
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
