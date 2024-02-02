@@ -18,3 +18,7 @@ def services_spor(request: HttpRequest, slug: str) -> RedirectOrResponse:
     else:
         context['service'] = model_filter
     return render(request, 'pages/services/diets.html', context)
+
+
+def test():
+    pass
