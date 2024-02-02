@@ -31,8 +31,8 @@ class Blog(TimeBasedStampModel):
   title = models.CharField(("Blog Başlık"), max_length=50)
   description = RichTextField(("Blog İçerik"))
   image = models.ImageField(("Blog Resim"), upload_to="blog/", height_field=None, width_field=None, max_length=None)
-  category = models.OneToOneField(Category, verbose_name=("Kategori Adı"), on_delete=models.CASCADE)
-  label = models.ManyToManyField(Label, verbose_name=("Etiket"))
+  category = models.ForeignKey(Category, verbose_name=("Blog Kategori"), on_delete=models.CASCADE)
+  label = models.ManyToManyField(Label, verbose_name=("Blog Etiket"))
   slug = AutoSlugField(
         populate_from="title", editable=False, always_update=True, blank=True
     )

@@ -7,24 +7,25 @@
 
 {% include "Components/carousel.html" %}
 <link rel="stylesheet" href={% static "css/index.css" %}>
+
 <div class="container my-5">
   <h1 class="text-center mb-5">Başlık</h1>
   {% for TopContent in Topcontent %}
     <div class="row my-5">
         {% if forloop.counter|divisibleby:2 %}
-            <div class="col-lg-6 text-center">
+            <div class="col-lg-6 d-flex justify-content-center align-items-center">
                 <img src="{{ TopContent.photo.url }}" class="img-fluid rounded" style="object-fit: cover;max-height: 400px;" alt="Diyetisyen">
             </div>
             <div class="col-lg-6 text-end">
                 <h2 class="mb-3">{{ TopContent.title }}</h2>
-                <div>{{ TopContent.content|safe }}</div>
+                <div class="content-div">{{ TopContent.content|safe }}</div>
             </div>
         {% else %}
             <div class="col-lg-6 ">
                 <h2 class="mb-3">{{ TopContent.title }}</h2>
-                <div>{{ TopContent.content|safe }}</div>
+                <div class="content-div">{{ TopContent.content|safe }}</div>
             </div>
-            <div class="col-lg-6 text-center">
+            <div class="col-lg-6 d-flex justify-content-center align-items-center">
                 <img src="{{ TopContent.photo.url }}" class="img-fluid rounded" style="object-fit: cover;max-height: 400px;" alt="Diyetisyen">
             </div>
         {% endif %}
@@ -57,6 +58,33 @@
   <div class="row"  id="selection">
     <script src="https://widget.trustmary.com/DPBujJGrs"></script>
   </div>
-
 </div>
+<section>
+  <h1 class="text-center">BLOG'S</h1>
+  <div class="owl-carousel owl-theme mt-4">
+    {% for blog in blogs %}
+    <div class="card">
+      <div class="card-image-container">
+        <img src={{blog.image.url}} alt="">
+      </div>
+      <p class="card-title">{{blog.title}}</p>
+      <p class="card-des">
+        {{blog.category}} 
+      </p>
+      
+      <a href={% url "blog-icerik" blog.slug %}>
+      <div class="card-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 384 512" stroke-width="0" fill="currentColor" stroke="currentColor">
+          <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path>
+        </svg>
+       <span class="card-btn-text">Tıkla</span>
+  
+      </div>
+    </a>
+    </div>
+    {% endfor %}
+  </div>
+
+</section>
+<script src={% static "js/index.js" %}></script>
 {% endblock content %}

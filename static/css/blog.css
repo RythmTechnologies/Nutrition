@@ -100,14 +100,15 @@ a:hover {
 	}
 
 	.postcard__text {
-		padding: 1.5rem;
+		padding: 3rem;
+		max-width: 70%;
 		position: relative;
 		display: flex;
 		flex-direction: column;
 	}
 
 	.postcard__preview-txt {
-    height: 250px !important;
+    	height: 150px !important;
 		width: 95%;
 		word-wrap: break-word !important;
 		overflow: hidden;

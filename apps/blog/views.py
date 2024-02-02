@@ -17,4 +17,4 @@ def blog_single_view(request: HttpRequest, slug: str) -> HttpResponse:
   single_blog = Blog.objects.filter(slug = slug).first()
   context["blog"] = single_blog
 
-  return render(request, "pages/singleblog.html", context)
+  return render(request, "pages/blogs/blog.html", context)
