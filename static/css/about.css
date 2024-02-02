@@ -1,3 +1,16 @@
+.slider {
+  max-width: 75%;
+   /* Slider'ın maksimum genişliğini ayarlar */
+  margin: auto; /* Ortalar */
+}
+
+.carousel-inner img {
+
+  max-height: 50vh;
+  width: 100%; /* Resimlerin genişliğini ayarlar */
+  height: auto; /* Resimlerin yüksekliğini orantılı tutar */
+}
+
 
 svg {
   height: 65vmin;

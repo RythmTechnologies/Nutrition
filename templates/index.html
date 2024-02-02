@@ -12,20 +12,20 @@
   {% for TopContent in Topcontent %}
     <div class="row my-5">
         {% if forloop.counter|divisibleby:2 %}
-            <div class="col-lg-6">
-                <img src="{{ TopContent.photo.url }}" class="img-fluid" style="object-fit: cover;max-height: 400px;" alt="Diyetisyen">
+            <div class="col-lg-6 text-center">
+                <img src="{{ TopContent.photo.url }}" class="img-fluid rounded" style="object-fit: cover;max-height: 400px;" alt="Diyetisyen">
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 text-end">
                 <h2 class="mb-3">{{ TopContent.title }}</h2>
                 <div>{{ TopContent.content|safe }}</div>
             </div>
         {% else %}
-            <div class="col-lg-6">
+            <div class="col-lg-6 ">
                 <h2 class="mb-3">{{ TopContent.title }}</h2>
                 <div>{{ TopContent.content|safe }}</div>
             </div>
-            <div class="col-lg-6">
-                <img src="{{ TopContent.photo.url }}" class="img-fluid" style="object-fit: cover;max-height: 400px;" alt="Diyetisyen">
+            <div class="col-lg-6 text-center">
+                <img src="{{ TopContent.photo.url }}" class="img-fluid rounded" style="object-fit: cover;max-height: 400px;" alt="Diyetisyen">
             </div>
         {% endif %}
       </div>
