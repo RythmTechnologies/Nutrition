@@ -26,13 +26,19 @@
           {% else %}
           {% endif %}" href="{% url 'hakkimizda' %}">Hakkımızda</a>
         </li>
-       
+
         <li class="nav-item">
             <a class="nav-link {% if request.path == '/hizmetler/' %}
             active
             {% else %}
             {% endif %}" href="{% url 'hizmetler' %}">Hizmetler</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/blog/' %}
+          active
+          {% else %}
+          {% endif %}" href="{% url 'blog' %}">Blog</a>
+      </li>
         <li class="nav-item">
             <a class="nav-link {% if request.path == '/iletisim/' %}
             active
