@@ -3,28 +3,8 @@
 <link rel="stylesheet" href={% static "css/services.css" %} />
 <div class="row mt-5 justify-content-center mb-5">
     {% for service in services %}
-    <div class="col-md-4">
-        
-        <a href="{% url 'spor-diyeti' service.slug %}">
-            
-        <div class="blog" style="background: url({{service.image.url}})
-        no-repeat;">
-       
-            <div class="title-box">
-                <h3>{{service.title}}</h3>
-                <hr />
-                <div class="intro">{{service.short_description|safe}}</div>
-            </div>
-            <div class="info">
-                <span>{{service.short_second_description|safe}}</span>
-            </div>
-            <div class="color-overlay"></div>
-        </div>
-        </a>
-    </div>
+   
     {% endfor %}
 </div>
-<div class="row">
-    
-</div>
+
 {% endblock content %}
