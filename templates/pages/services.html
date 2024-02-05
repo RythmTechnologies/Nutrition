@@ -1,30 +1,19 @@
-{% extends 'base.html' %} {% load static %} {% block title %} Servisler 
-{% endblock title %} {% block content %} 
+{% extends 'base.html' %} {% load static %} {% block title %} Servisler
+{% endblock title %} {% block content %}
 <link rel="stylesheet" href={% static "css/services.css" %} />
 <div class="row mt-5 justify-content-center mb-5">
     {% for service in services %}
     <div class="col-md-4">
-        
-        <a href="{% url 'spor-diyeti' service.slug %}">
-            
-        <div class="blog" style="background: url({{service.image.url}})
-        no-repeat;">
-       
-            <div class="title-box">
-                <h3>{{service.title}}</h3>
-                <hr />
-                <div class="intro">{{service.short_description|safe}}</div>
+        <div class="article-card">
+            <a href="{% url 'spor-diyeti' service.slug %}">
+            <div class="content">
+                <p class="date">{{service.created_at}}</p>
+                <p class="title">{{service.title}}</p>
             </div>
-            <div class="info">
-                <span>{{service.short_second_description|safe}}</span>
-            </div>
-            <div class="color-overlay"></div>
+            <img src="{{service.image.url}}" alt="article-cover" />
+            </a>
         </div>
-        </a>
     </div>
     {% endfor %}
-</div>
-<div class="row">
-    
 </div>
 {% endblock content %}
