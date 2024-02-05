@@ -1,27 +1,3 @@
-// document.addEventListener("scroll", () => {
-//     let nav = document.getElementById("nav");
-//     // Sayfa kaydırıldığında ve tema "karanlık" moddaysa
-//     if (window.scrollY > 0 && localStorage.theme === "dark") {
-       
-//         nav.classList.add("navbar-background-dark-scroll");
-//         nav.classList.add("nav-link");
-//         nav.classList.remove("navbar-background-scroll");
-//         nav.classList.remove("nav-link-dark");
-//     }
-  
-//     else {
-      
-//         nav.classList.remove("navbar-background-dark-scroll");
-        
-//         if (window.scrollY > 0 && localStorage.theme !== "dark") {
-//             nav.classList.add("navbar-background-scroll");
-//             nav.classList.add("nav-link-dark");
-//         } else {
-//             nav.classList.remove("navbar-background-scroll");
-//             nav.classList.remove("nav-link-dark");
-//         }
-//     }
-// });
 document.addEventListener("DOMContentLoaded", function() {
     const navbar = document.querySelector('.navbar'); // Navbar seçimi
     const darkModeToggle = document.getElementById('darkModeToggle'); // Dark mode toggle butonu
