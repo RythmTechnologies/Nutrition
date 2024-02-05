@@ -83,9 +83,9 @@
     justify-content: center;
     align-items: center;
     background-color: #12bde7;
-    width: 25px;
-    height: 25px;
-    max-height: 25px;
+    width: 30px;
+    height: 35px;
+    max-height: 35px;
     border-radius: 10px;
     overflow: hidden;
     transition: all ease-in-out 0.5s;

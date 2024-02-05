@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,7 +78,46 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dietetic.wsgi.application'
 
+JAZZMIN_SETTINGS = {
+    # başlık ve site başlığı
+    "site_title": "Admin Paneli",
+    "site_header": "Yönetim",
+    "welcome_sign": "Hoş Geldiniz",
+   
+    
+    # Tema ayarları
+    "theme": "cosmo",
+    
+    # Model simgeleri
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+    },
+    
+  
+}
 
+JAZZMIN_UI_TWEAKS = {
+   
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": "navbar-dark",
+    "accent": "accent-primary",
+    "navbar": "navbar-white navbar-light",
+    "no_navbar_border": False,
+    "sidebar": "sidebar-dark-primary",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": "sidebar-nav-compact",
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    "theme": "cosmo",
+    
+}
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -131,7 +171,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/'),
 ]
-
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'basic',
+        
+    },
+}
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

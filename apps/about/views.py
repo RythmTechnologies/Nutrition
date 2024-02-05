@@ -6,7 +6,7 @@ def about_me(request):
 
 
     AboutContent = AboutMe.objects.all()
-    AboutSertifica = Sertifica.objects.all().order_by('-created_at')[:8]
+    AboutSertifica = Sertifica.objects.all().order_by('-created_at')[:1]
 
     context['AboutContents'] = AboutContent
     context['AboutSertifica'] = AboutSertifica

@@ -209,7 +209,6 @@
     </div>
    
 
-
     <!-- Hizmetler Bölümü -->
     
     <div class="row mt-4">
@@ -218,28 +217,23 @@
             <img src="{% static 'images/diyet.jpg' %}" alt="Diyetisyenin Fotoğrafı" class="img-fluid rounded mb-4">
         </div>
         <div class="col-md-6">
-            <div class="accordion" id="accordionPanelsStayOpenExample">
-              {% for sertifica in AboutSertifica %}
-                <div class="accordion-item">
-                    <h5 class="accordion-header" id="heading{{ forloop.counter }}">
-                        <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="collapse{{ forloop.counter }}">
-                            {{ sertifica.header }}
-                        </button>
-                    </h5>
-                    <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" aria-labelledby="heading{{ forloop.counter }}">
-                        <div class="accordion-body">
-                            {{ sertifica.content|safe }}
-                        </div>
-                    </div>
-                </div>
+            <ul class="list-group list-group-flush">
+               {% for sertifica in AboutSertifica %}
+                {{sertifica.content|safe}}
+                
                 {% empty %}
-                    <p>Sertifika bilgisi bulunamadı.</p>
+                        <p>Sertifika bilgisi bulunamadı.</p>
                 {% endfor %}
-              </div>
+                </div>
         </div>
       </div>
-      
-</div>
-    
+<script>
+window.onload = function() {
+    var olElements = document.getElementsByTagName('ol');
+    for(var i = 0; i < olElements.length; i++) {
+        olElements[i].style.listStyleType = "decimal"; // "decimal" yerine istediğiniz stil tipini kullanabilirsiniz
+    }
+};
+</script>
 <script src={% static "js/about.js" %}></script>
 {% endblock content %}

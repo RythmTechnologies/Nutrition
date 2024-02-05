@@ -25,10 +25,8 @@ Blog
             </time>
           </div>
           <div class="postcard__bar"></div>
-          <div class="postcard__preview-txt">{{blog.description|safe|truncatewords_html:50}}</div>
-          {% if blog.description|wordcount > 50 %}
-            <a href="{% url 'blog-icerik' blog.slug %}">...</a>
-          {% endif %}
+          <div class="postcard__preview-txt">{{blog.short_content}}</div>
+  
           <ul class="postcard__tagbox">
             <li class="tag__item"><i class="fas fa-tag mr-2"></i> {{blog.category}}</li>
             <li class="tag__item"><i class="fa-solid fa-at"></i> {{blog.author}}</li>
@@ -37,6 +35,43 @@ Blog
         </div>
       </article>
       {% endfor %}
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          {% if blogs.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page=1" aria-label="İlk">
+                <span aria-hidden="true">&laquo; İlk</span>
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="?page={{ blogs.previous_page_number }}" aria-label="Önceki">
+                <span aria-hidden="true">Önceki</span>
+              </a>
+            </li>
+          {% endif %}
+      
+          <!-- Mevcut Sayfa Göstergesi (Opsiyonel) -->
+          <li class="page-item active" aria-current="page">
+            <span class="page-link">
+              {{ blogs.number }} / {{ blogs.paginator.num_pages }}
+              <span class="sr-only">(current)</span>
+            </span>
+          </li>
+      
+          {% if blogs.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ blogs.next_page_number }}" aria-label="Sonraki">
+                Sonraki
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="?page={{ blogs.paginator.num_pages }}" aria-label="Son">
+                <span aria-hidden="true">Son &raquo;</span>
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
 
     </div>
   </section>
