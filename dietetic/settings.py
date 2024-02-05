@@ -44,8 +44,7 @@ INSTALLED_APPS = [
     'apps.blog',
     'apps.contact',
     'ckeditor',
-
-
+    'apps.google_comment',
 ]
 
 MIDDLEWARE = [
@@ -83,23 +82,23 @@ JAZZMIN_SETTINGS = {
     "site_title": "Admin Paneli",
     "site_header": "Yönetim",
     "welcome_sign": "Hoş Geldiniz",
-   
-    
+
+
     # Tema ayarları
     "theme": "cosmo",
-    
+
     # Model simgeleri
     "icons": {
         "auth": "fas fa-users-cog",
         "auth.user": "fas fa-user",
         "auth.Group": "fas fa-users",
     },
-    
-  
+
+
 }
 
 JAZZMIN_UI_TWEAKS = {
-   
+
     "navbar_small_text": False,
     "footer_small_text": False,
     "body_small_text": False,
@@ -116,7 +115,7 @@ JAZZMIN_UI_TWEAKS = {
     "sidebar_nav_legacy_style": False,
     "sidebar_nav_flat_style": False,
     "theme": "cosmo",
-    
+
 }
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -174,7 +173,7 @@ STATICFILES_DIRS = [
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'basic',
-        
+
     },
 }
 MEDIA_URL = '/media/'
