@@ -1,6 +1,8 @@
+{% load static %}
 <nav id="nav" class="navbar navbar-expand-lg sticky-top mb-5">
   <div class="container">
-    <a class="navbar-brand" href="{% url 'home' %}">Isim/Logo</a>
+    <img src={% static "logo/logo-seda.png" %}  height="75px" alt="">
+    <a class="navbar-brand" href="{% url 'home' %}"></a>
     <button
       class="navbar-toggler"
       type="button"
