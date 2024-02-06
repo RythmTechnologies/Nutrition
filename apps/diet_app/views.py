@@ -10,14 +10,22 @@ def index(request):
     sliders = HomeSlider.objects.all()
     Topcontent = TopContent.objects.all()
     blogs = Blog.objects.all().order_by('-created_at')[:8]
-    socialmedia=SocialMedia.objects.all()
+   
     comments = GoogleComment.objects.all()
 
     context["sliders"]=sliders
     context["Topcontent"]=Topcontent
     context['blogs'] = blogs
-    context['socialmedia'] = socialmedia
+    
     context['google_comments'] = comments
     
 
     return render(request, 'index.html',context)
+
+def footer_context(request):
+    socialmedia=SocialMedia.objects.all()
+
+    context = {}
+    context['socialmedia'] = socialmedia
+
+    return context
