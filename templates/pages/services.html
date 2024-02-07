@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% load static %} {% block title %} Servisler
 {% endblock title %} {% block content %}
 <link rel="stylesheet" href={% static "css/services.css" %} />
-<div class="row mt-5 justify-content-center mb-5 ">
+<div class="row p-0 mx-0 mt-5 justify-content-center mb-5 ">
     {% for service in services %}
     <div class="col-md-4 justify-content-center d-flex">
         <div class="article-card">
