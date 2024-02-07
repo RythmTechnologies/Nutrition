@@ -24,7 +24,6 @@ def index(request):
 
 def footer_context(request):
     socialmedia=SocialMedia.objects.all()
-
     context = {}
     context['socialmedia'] = socialmedia
 
