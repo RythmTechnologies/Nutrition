@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'apps.google_comment',
     'apps.social',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [

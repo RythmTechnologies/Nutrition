@@ -4,26 +4,47 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from dietetic import settings
 from django.core.mail import EmailMessage
+import os
 
 def contact_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
             contact=form.save()
-            send_mail(
+            # kullanıcıya mail
+            email = EmailMessage(
                 subject='Mesajınız Alındı',
-                message='Mesajınızı aldık, en kısa sürede size dönüş yapacağız.',
+                body = f'''
+                    <html>
+                        <head></head>
+                        <body>
+                            <p>Merhaba {contact.name},</p>
+                            <p>Randevunuz  başarıyla alınmıştır..</p>
+                            <p>Randevunuz  {contact.appointment_date} tarihinde {contact.appointment_time} saatinde {contact.appointment_type} olacaktır.</p>
+                            <p>Sorularınız veya ek bilgi ihtiyacınız olursa, lütfen bizimle iletişime geçmekten çekinmeyin.</p>
+                            <p>Teşekkürler,<br>Diyetisyen Seda Nur Çıray</p>
+                        </body>
+                    </html>
+                    ''',
                 from_email=settings.EMAIL_HOST_USER,
-                recipient_list=[contact.email],  # formdan alınan kullanıcı e-postası
-                fail_silently=False,
-            )
-            send_mail(
+                to=[contact.email]
+                    )
+            email.content_subtype = "html"
+            attachment_path = os.path.join(settings.STATIC_URL, 'logo/logo-seda.png')
+            if attachment_path:
+                email.attach_file(attachment_path)
+            email.send()
+
+            # admine mail 
+            email_to_admin = EmailMessage(
                 subject=f'Yeni İletişim Formu Mesajı: {contact.name}',
-                message=f'Mesaj: {contact.message}\nE-posta: {contact.email},{contact.appointment_date},{contact.appointment_time},{contact.appointment_type}',
+                body=f'Mesaj: {contact.message}\nE-posta: {contact.email}\nTarih: {contact.appointment_date}\nSaat: {contact.appointment_time}\nRandevu Türü: {contact.appointment_type}',
                 from_email=settings.EMAIL_HOST_USER,
-                recipient_list=[settings.EMAIL_HOST_USER],  # Yönetici e-posta adresi
-                fail_silently=False,
+                to=[settings.EMAIL_HOST_USER]  # Yönetici e-posta adresi
             )
+
+
+            email_to_admin.send()
             
            
             messages.success(request, 'Mesajınız başarıyla gönderildi.')

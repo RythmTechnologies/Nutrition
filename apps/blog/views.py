@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from apps.diet_app.mixin import HttpRequest, HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Blog,BlogAbout,BlogContent
+from .models import Blog
 import random
 
 def blog_view(request: HttpRequest) -> HttpResponse:
@@ -26,7 +26,6 @@ def blog_view(request: HttpRequest) -> HttpResponse:
 
 
 def blog_single_view(request: HttpRequest, slug: str) -> HttpResponse:
-
   context = {}
   all_blogs=Blog.objects.all()
   if all_blogs.count() > 5:
@@ -37,15 +36,7 @@ def blog_single_view(request: HttpRequest, slug: str) -> HttpResponse:
      context["blogs"] = all_blogs
 
   single_blog = Blog.objects.filter(slug = slug).first()
-  blog_about = BlogAbout.objects.filter(post=single_blog).first()
-  blog_content = BlogContent.objects.filter(blog=single_blog)
 
-  if blog_about and blog_content:
-    context['blog_about'] = blog_about
-    context['blog_content'] = blog_content
-    
   context["blog"] = single_blog
-  
-  
 
   return render(request, "pages/blogs/blog.html", context)
