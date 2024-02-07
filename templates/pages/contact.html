@@ -62,32 +62,45 @@
     </section>
 </div>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  flatpickr('.flatpickr-date', {
-    altInput: true,
-    locale: "tr",
-    altFormat: "F j, Y",
-    dateFormat: "Y-m-d",
-    minDate: "today",
-    maxDate: new Date().fp_incr(365),
-    locale: 'tr',
-    disable: [
-      function(date) {
-        return (date.getDay() === 0);
-      }
-    ]
-  });
-
-  flatpickr('.flatpickr-time', {
-    enableTime: true,
-    locale: "tr",
-    noCalendar: true,
-    dateFormat: "H:i",
-    minTime: "9:00",
-    maxTime: "18:30",
-    time_24hr: true,
-    minuteIncrement: 15
-  });
-});
+    document.addEventListener('DOMContentLoaded', function() {
+        // Tarih seçici başlatılıyor
+        const datepicker = flatpickr('.flatpickr-date', {
+          altInput: true,
+          altFormat: "F j, Y",
+          dateFormat: "Y-m-d",
+          minDate: "today",
+          maxDate: new Date().fp_incr(365),
+          locale: 'tr',
+          disable: [
+            function(date) {
+              // Pazar günlerini devre dışı bırak
+              return date.getDay() === 0;
+            }
+          ],
+          onChange: function(selectedDates, dateStr, instance) {
+            const date = selectedDates[0];
+            if (date && date.getDay() === 6) { // Cumartesi günü kontrolü
+              // Cumartesi için saat seçicisini güncelle
+              timepicker.set('minTime', '10:00');
+              timepicker.set('maxTime', '13:30');
+            } else {
+              // Diğer günler için saat seçicisini varsayılana sıfırla
+              timepicker.set('minTime', '10:00');
+              timepicker.set('maxTime', '18:30');
+            }
+          }
+        });
+      
+        // Saat seçici başlatılıyor
+        const timepicker = flatpickr('.flatpickr-time', {
+          enableTime: true,
+          noCalendar: true,
+          dateFormat: "H:i",
+          minTime: "9:00",
+          maxTime: "18:30",
+          time_24hr: true,
+          minuteIncrement: 15,
+        });
+      });
 </script>
 {% endblock content %}

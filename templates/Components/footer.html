@@ -1,9 +1,6 @@
 <div class="container">
-  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-3 border-top">
-    <div class="col mb-3">
-    </div>
-
-    <div class="col mb-3 text-center text-md-start">
+  <footer class="row  p-3 border-top">
+    <div class="col-md-4  text-center text-md-start">
       <h5>Sosyal Medya</h5>
       <ul class="nav flex-column">
       {% for social in socialmedia %}
@@ -12,26 +9,33 @@
       </ul>
     </div>
 
-    <div class="col mb-3 text-center text-md-start">
+    <div class="col-md-4 mb-3 text-center text-md-start">
       <h5>Section 2</h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+        <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-body-secondary">Home</a></li>
+        <li class="nav-item mb-2"><a href="{% url 'hakkimizda' %}" class="nav-link p-0 text-body-secondary">Hakkımızda</a></li>
+        <li class="nav-item mb-2"><a href="{% url 'hizmetler' %}" class="nav-link p-0 text-body-secondary">Hizmetler</a></li>
+        <li class="nav-item mb-2"><a href="{% url 'blog' %}" class="nav-link p-0 text-body-secondary">Blog</a></li>
+        <li class="nav-item mb-2"><a href="{% url 'iletisim' %}" class="nav-link p-0 text-body-secondary">İletişim</a></li>
       </ul>
     </div>
-
-    <div class="col mb-3 text-center text-md-start">
-      <h5>Section 3</h5>
+    <div class="col-md-4 mb-3 text-center text-md-start">
+      <h5>İletişim</h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+        <li class="nav-item mb-2"><a href="https://www.google.com/maps/dir//sedanur+ciray/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x14b55d50ac89d641:0xb6034fc4db9c2051?sa=X&ved=2ahUKEwjH3KzyopmEAxV5SvEDHT-kC_MQ9Rd6BAg_EAA&cshid=1707310409800889" class="nav-link p-0 text-body-secondary"><i class="fa-solid fa-location-dot"></i> Adres: Mimarsinan, Eski Silivri Yolu Cd. No:37 Kat:2, Daire:5, 34500 Büyükçekmece/İstanbul</a></li>
+        <li class="nav-item mb-2"><a href="tel:+90501 036 79 44" class="nav-link p-0 text-body-secondary"><i class="fa-solid fa-phone"></i> (+90) 501 036 79 44</a></li>
+        <li class="nav-item mb-2"><a href="mailto:dyt.sedanurciray@gmail.com" class="nav-link p-0 text-body-secondary"><i class="fa-solid fa-envelope"></i>  dyt.sedanurciray@gmail.com</a></li>
+        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">🌍 Yüz Yüze & Online Diyet</a></li>
+        
       </ul>
     </div>
   </footer>
+<div class="row">
+  <div class="col-md-12">
+    <p>&copy; 2024 RythmTechnologies, Inc. All rights reserved.</p>
+    </div>
+  </div>
+
+</div>
+
 </div>

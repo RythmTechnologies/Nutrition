@@ -3,6 +3,7 @@ from .forms import ContactForm
 from django.contrib import messages
 from django.core.mail import send_mail
 from dietetic import settings
+from django.core.mail import EmailMessage
 
 def contact_view(request):
     if request.method == 'POST':

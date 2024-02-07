@@ -3,12 +3,12 @@
    
   }
 
-  .card {
+  .comment-card {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 80%;
     border: 0;
-    height: 320px;
+    height: 80%;
     max-height: 350px;
     background-color: var(--white);
     border-radius: 10px;
@@ -16,7 +16,6 @@
             -4px -4px 12px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     transition: all 0.3s;
-    cursor: pointer;
     box-sizing: border-box;
     padding: 10px;
     
@@ -47,10 +46,7 @@
   .card-title {
     margin: 0;
     font-size: 17px;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-            "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     font-weight: 600;
-    color: #1797b8;
     cursor: default;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -67,9 +63,6 @@
     line-clamp: 1;
     margin: 0;
     font-size: 13px;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-            "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    color: #1797b8;
     cursor: default;
   }
   
@@ -121,7 +114,7 @@
 .card-comment {
   background-color: rgba(243, 244, 246, 1);
   padding: 2rem;
-  max-width: 320px;
+  max-width: 150px;
   border-radius: 10px;
   box-shadow: 0 20px 30px -20px rgba(5, 5, 5, 0.24);
 }
@@ -157,3 +150,74 @@
   margin-top: 1rem;
   color: rgba(107, 114, 128, 1);
 }
+
+.sk_reviews_grid{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Blog  */
+.card__image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  
+}
+
+.card-blog {
+  height: 100%;
+  overflow:hidden;
+  box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+
+}
+
+.card__body {
+  padding: 1rem;
+  min-height: 250px;
+  gap: .5rem;
+}
+
+.tag {
+  align-self: flex-start;
+  padding: .25em .75em;
+  border-radius: 1em;
+  font-size: .75rem;
+  
+}
+
+.tag + .tag {
+  margin-left: .5em;
+}
+
+.tag-blue {
+  background: rgb(50,195,20);
+  color: #fafafa;
+}
+
+
+.card__body h4 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.card__footer {
+  display: flex;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.user {
+  display: flex;
+  gap: .5rem;
+}
+
+.user__image {
+  border-radius: 50%;
+}
+
+.user__info > small {
+  color: #666;
+}
+

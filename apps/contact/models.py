@@ -9,9 +9,10 @@ class Contact(models.Model):
     appointment_time = models.TimeField(verbose_name="Randevu Saati")
     appointment_type = models.CharField(max_length=50, verbose_name="Randevu Türü", choices=[
         ('online', 'Online'),
-        ('face_to_face', 'Yüz Yüze'),
+        ('yüz_yüze', 'Yüz Yüze'),
     ])
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Gönderilme Tarihi")
+    
 
     def __str__(self):
         return f"{self.name} - {self.email} - {self.appointment_date} - {self.appointment_time} "

@@ -13,3 +13,7 @@ class ContactForm(forms.ModelForm):
             'appointment_time': forms.TimeInput(attrs={'class': 'form-control flatpickr-time'}),
             'appointment_type': forms.Select(attrs={'class': 'form-control'}),
         }
+    def __init__(self, *args, **kwargs):
+        super(ContactForm, self).__init__(*args, **kwargs)
+       
+        self.fields['appointment_type'].initial = 'yüz_yüze'
