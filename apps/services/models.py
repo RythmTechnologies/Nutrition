@@ -6,7 +6,7 @@ from autoslug import AutoSlugField
 # Services Model ORM Start
 class Services(TimeBasedStampModel):
   title = models.CharField(("Başlık"), max_length=50)
-  description = RichTextField(("İçerik Yazısı"))
+  description = models.TextField(("İçerik Yazısı"))
   image = models.ImageField(("Banner Resim"), upload_to="services", height_field=None, width_field=None, max_length=None)
   content_image = models.ImageField(("İçerik Resim"), upload_to="services", height_field=None, width_field=None, max_length=None)
   slug = AutoSlugField(

@@ -5,13 +5,11 @@
     {% for service in services %}
     <div class="col-md-4 justify-content-center d-flex">
         <div class="article-card">
-            <a href="{% url 'spor-diyeti' service.slug %}">
             <div class="content">
-            
                 <p class="title">{{service.title}}</p>
+                <p class="description">{{service.description}}</p>
             </div>
             <img src="{{service.image.url}}" alt="article-cover" />
-            </a>
         </div>
     </div>
     {% endfor %}
