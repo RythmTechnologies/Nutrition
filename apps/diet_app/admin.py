@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import HomeSlider,TopContent
+from .models import TopContent
 
-
-admin.site.register(HomeSlider)
 admin.site.register(TopContent)
 
