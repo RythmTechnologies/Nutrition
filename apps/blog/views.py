@@ -29,9 +29,13 @@ def blog_single_view(request: HttpRequest, slug: str) -> HttpResponse:
 
   context = {}
   all_blogs=Blog.objects.all()
-  randomized_blogs = random.sample(list(all_blogs), 5)
-  
-  random_5_blogs = randomized_blogs[:5]
+  if all_blogs.count() > 5:
+    randomized_blogs = random.sample(list(all_blogs), 5)
+    random_5_blogs = randomized_blogs[:5]
+    context["blogs"] = random_5_blogs
+  else:
+     context["blogs"] = all_blogs
+
   single_blog = Blog.objects.filter(slug = slug).first()
   blog_about = BlogAbout.objects.filter(post=single_blog).first()
   blog_content = BlogContent.objects.filter(blog=single_blog)
@@ -42,6 +46,6 @@ def blog_single_view(request: HttpRequest, slug: str) -> HttpResponse:
     
   context["blog"] = single_blog
   
-  context["blogs"] = random_5_blogs
+  
 
   return render(request, "pages/blogs/blog.html", context)

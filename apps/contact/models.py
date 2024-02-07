@@ -5,10 +5,17 @@ class Contact(models.Model):
     name = models.CharField(max_length=100, verbose_name="Ad")
     email = models.EmailField(verbose_name="E-posta")
     message = models.TextField(verbose_name="Mesaj")
+    appointment_date = models.DateField(verbose_name="Randevu Tarihi")
+    appointment_time = models.TimeField(verbose_name="Randevu Saati")
+    appointment_type = models.CharField(max_length=50, verbose_name="Randevu Türü", choices=[
+        ('online', 'Online'),
+        ('yüz_yüze', 'Yüz Yüze'),
+    ])
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Gönderilme Tarihi")
+    
 
     def __str__(self):
-        return f"{self.name} - {self.email}"
+        return f"{self.name} - {self.email} - {self.appointment_date} - {self.appointment_time} "
     class Meta:
         verbose_name = "iletişim"
         verbose_name_plural = "iletişim"
