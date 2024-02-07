@@ -8,17 +8,18 @@ $(document).ready(function(){
       responsive:{
         0:{
           margin:10,  
-          items:2
+          items:1
         },
         600:{
           margin:20,
-          items:3
+          items:2
         },
         1000:{
           margin:40,
-          items:5
+          items:3
         }
       }
     });
   });
 
+ 
