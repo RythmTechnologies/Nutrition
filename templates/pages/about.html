@@ -6,11 +6,11 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/about.css' %}">
 
-<section class="shadow-lg">
-  <div class="container p-5">
+<div class="container">
+<section class="shadow-lg rounded-2">
   <h4 class="text-center fs-2 fw-bold">Hakkımda</h4>
     <!-- Diyetisyen Bilgileri Bölümü -->
-    <div class="row justify-content-center align-item-center my-5">
+    <div class="row p-0 mx-0 justify-content-center align-item-center my-5">
     {% for about_content in AboutContents %}
         <div class="col-md-6">
             <img src="{{ about_content.image.url }}" style="max-width: 500px; height: calc(minmax);" class="d-block w-100 rounded" alt="...">
@@ -22,11 +22,13 @@
         <p class="text-center">Hakkımda bilgisi bulunamadı.</p>
         {% endfor %}
     </div>
+
+    
         </section>
 
        <!-- Neden Beni Tercih Etmelisiniz Bölümü -->
     <section>
-       <div class="row  p-5">
+       <div class="row px-0 mx-0 py-5">
         <div class="col-md-6 mt-4">
             <h3 class="mb-3">Neden Beni Tercih Etmelisiniz?</h3>
             <p>[Diyetisyen olarak benzersiz yönleriniz, hastalarınıza nasıl yardımcı olduğunuz, danışanların başarı hikayeleri].</p>
@@ -206,8 +208,8 @@
 </section>
 
     <!-- Hizmetler Bölümü -->
-<section class="shadow-lg">
-    <div class="row justify-content-center my-5 p-5">
+<section class="shadow-lg rounded-2">
+    <div class="row px-0 mx-0 justify-content-center my-5 py-5">
         <h3 class="text-center my-5 fs-2 fw-bold">Sertifikalar&Lisans </h3>
         <div class="col-md-6">
             <img src="{% static 'images/diyet.jpg' %}" alt="Diyetisyenin Fotoğrafı" class="img-fluid rounded mb-4">
@@ -222,7 +224,8 @@
                 {% endfor %}
                 </div>
         </div>
-      </div>
     </section>
+</div>
+    
 <script src={% static "js/about.js" %}></script>
 {% endblock content %}
