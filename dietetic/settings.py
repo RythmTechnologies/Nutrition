@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'apps.google_comment',
     'apps.social',
     'phonenumber_field',
+    'storages',
 ]
 
 MIDDLEWARE = [
