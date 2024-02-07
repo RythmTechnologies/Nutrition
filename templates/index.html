@@ -50,7 +50,7 @@
   <h2 class="mb-3">Profesyonel Diyet Danışmanlığı</h2>
   <p>Ben [Diyetisyen Adı], sağlıklı yaşam ve beslenme konusunda uzman bir diyetisyenim. Kişiye özel diyet planları, sağlıklı yaşam tavsiyeleri ve beslenme koçluğu hizmetleri sunuyorum.</p>
   <p>Birlikte, sağlıklı beslenme alışkanlıkları geliştirebilir, ideal kilonuza ulaşabilir ve daha enerjik bir yaşam sürebilirsiniz.</p>
-              
+
 </div>
 </div>
 </div>
@@ -65,7 +65,7 @@
       </div>
       <p class="card-title">{{blog.title}}</p>
       <p class="card-des">
-        {{blog.category}} 
+        {{blog.category}}
       </p>
       <a href={% url "blog-icerik" blog.slug %}>
       <div class="card-btn">
@@ -91,12 +91,12 @@
             <div class="col-md-3"> <p class="text-warning">{{ comment.stars_display }}</p></div>
             <div class="col-md-4">  <div class="image-comment"></div></div>
           </div>
-        
+
             <span
               class="badge bg-danger"
               >{{comment.stars_count}}</span>
           <p class="name">{{comment.comment_author}}</p>
-          
+
         </div>
         <p class="message-comment">
           {{comment.comment_content|safe}}
