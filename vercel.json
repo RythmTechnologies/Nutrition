@@ -5,16 +5,19 @@
       "src": "dietetic/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    },
+    {
+      "src": "build_files.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "staticfiles"
+      }
     }
   ],
   "routes": [
     {
       "src": "/static/(.*)",
-      "dest": "https://rythmtech-nutrition-bucket.s3.amazonaws.com/static/$1"
-    },
-    {
-      "src": "/static/(.*)",
-      "dest": "https://rythmtech-nutrition-bucket.s3.amazonaws.com/"
+      "dest": "/static/$1"
     },
     {
       "src": "/(.*)",
