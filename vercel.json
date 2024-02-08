@@ -13,6 +13,10 @@
       "dest": "https://rythmtech-nutrition-bucket.s3.amazonaws.com/static/$1"
     },
     {
+      "src": "/static/(.*)",
+      "dest": "https://rythmtech-nutrition-bucket.s3.amazonaws.com/"
+    },
+    {
       "src": "/(.*)",
       "dest": "dietetic/wsgi.py"
     }
