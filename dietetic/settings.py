@@ -33,7 +33,7 @@ ALLOWED_HOSTS = [".vercel.app",".now.sh"]
 # Application definition
 
 INSTALLED_APPS = [
-    # 'jazzmin',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -85,48 +85,46 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dietetic.wsgi.application'
 
-# JAZZMIN_SETTINGS = {
-#     # başlık ve site başlığı
-#     "site_title": "Admin Paneli",
-#     "site_header": "Yönetim",
-#     "welcome_sign": "Hoş Geldiniz",
+JAZZMIN_SETTINGS = {
+    # başlık ve site başlığı
+    "site_title": "Admin Paneli",
+    "site_header": "Yönetim",
+    "welcome_sign": "Hoş Geldiniz",
 
 
-#     # Tema ayarları
-#     "theme": "cosmo",
+    # Tema ayarları
+    "theme": "cosmo",
 
-#     # Model simgeleri
-#     "icons": {
-#         "auth": "fas fa-users-cog",
-#         "auth.user": "fas fa-user",
-#         "auth.Group": "fas fa-users",
-#     },
+    # Model simgeleri
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+    },
 
 
-# }
+}
 
-# JAZZMIN_UI_TWEAKS = {
+JAZZMIN_UI_TWEAKS = {
 
-#     "navbar_small_text": False,
-#     "footer_small_text": False,
-#     "body_small_text": False,
-#     "brand_small_text": False,
-#     "brand_colour": "navbar-dark",
-#     "accent": "accent-primary",
-#     "navbar": "navbar-white navbar-light",
-#     "no_navbar_border": False,
-#     "sidebar": "sidebar-dark-primary",
-#     "sidebar_nav_small_text": False,
-#     "sidebar_disable_expand": False,
-#     "sidebar_nav_child_indent": False,
-#     "sidebar_nav_compact_style": "sidebar-nav-compact",
-#     "sidebar_nav_legacy_style": False,
-#     "sidebar_nav_flat_style": False,
-#     "theme": "cosmo",
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": "navbar-dark",
+    "accent": "accent-primary",
+    "navbar": "navbar-white navbar-light",
+    "no_navbar_border": False,
+    "sidebar": "sidebar-dark-primary",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": "sidebar-nav-compact",
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    "theme": "cosmo",
 
-# }
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+}
 
 DATABASES = {
     "default": {
@@ -193,16 +191,25 @@ if USE_S3:
     AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
     AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
     AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
-    AWS_DEFAULT_ACL = 'public-read'
+    AWS_DEFAULT_ACL = None
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
     # s3 public media settings
     PUBLIC_MEDIA_LOCATION = 'media'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3Boto3Storage'
+    # s3 public static settings
+    PUBLIC_STATIC_LOCATION = 'staticfiles'
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_STATIC_LOCATION}/'
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 else:
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    STATIC_URL = '/staticfiles/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
 
 CKEDITOR_CONFIGS = {
     'default': {
