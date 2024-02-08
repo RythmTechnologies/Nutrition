@@ -1,5 +1,5 @@
 from django.db import models
-from apps.diet_app.mixin import TimeBasedStampModel
+from apps.diet_app.mixin import TimeBasedStampModel,MyS3Storage
 from autoslug import AutoSlugField
 from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
@@ -31,7 +31,7 @@ class Blog(TimeBasedStampModel):
   title = models.CharField(("Blog Başlık"), max_length=50)
   short_content = models.CharField(("Blog Kısa Başlık"), max_length=120)
   description = RichTextField(("Blog İçerik"))
-  image = models.ImageField(("Blog Resim"), upload_to="blog/", height_field=None, width_field=None, max_length=None)
+  image = models.ImageField(("Blog Resim"), upload_to="blog/",storage=MyS3Storage(), height_field=None, width_field=None, max_length=None)
   category = models.ForeignKey(Category, verbose_name=("Blog Kategori"), on_delete=models.CASCADE)
   label = models.ManyToManyField(Label, verbose_name=("Blog Etiket"))
   slug = AutoSlugField(
@@ -44,8 +44,7 @@ class Blog(TimeBasedStampModel):
 
   def __str__(self) -> str:
     return self.title
-  
 
-  
 
-  
+
+
