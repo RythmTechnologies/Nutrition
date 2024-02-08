@@ -84,7 +84,7 @@ TEMPLATES = [
 
 
 
-WSGI_APPLICATION = 'dietetic.wsgi.application'
+WSGI_APPLICATION = 'dietetic.wsgi.app'
 
 JAZZMIN_SETTINGS = {
     # başlık ve site başlığı
