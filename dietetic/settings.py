@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True 
 
-ALLOWED_HOSTS = [".vercel.app",".now.sh"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -84,6 +84,8 @@ TEMPLATES = [
 
 
 
+
+
 WSGI_APPLICATION = 'dietetic.wsgi.app'
 
 JAZZMIN_SETTINGS = {
@@ -102,8 +104,6 @@ JAZZMIN_SETTINGS = {
         "auth.user": "fas fa-user",
         "auth.Group": "fas fa-users",
     },
-
-
 }
 
 JAZZMIN_UI_TWEAKS = {
@@ -188,8 +188,10 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = os.path.join(BASE_DIR, "static/"),
-STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles","static")
+STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'basic',
