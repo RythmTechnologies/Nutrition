@@ -103,6 +103,7 @@ celerybeat-schedule.*
 *.sage.py 
 staticfiles/
 staticfiles_build/
+static/
 # Environments 
 .env 
 .venv 
