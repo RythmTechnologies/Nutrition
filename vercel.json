@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "dietetic/wsgi.py",
+      "src": "dietetic/asgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     },
@@ -21,7 +21,7 @@
     },
     {
       "src": "/(.)",
-      "dest": "dietetic/wsgi.py"
+      "dest": "dietetic/asgi.py"
     }
   ]
 }
