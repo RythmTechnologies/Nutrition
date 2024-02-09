@@ -11,12 +11,12 @@
 
 
 <section class="shadow-lg ">
-  <div class="container m-0 p-0">
+<div class="container">
   <div class="row justify-content-center mx-0 p-0">
       <h1 class="text-center my-5 px-0 py-4 rounded-4 mx-0 fs-2 fw-bold">Başlık</h1>
   {% for TopContent in Topcontent %}
         {% if forloop.counter|divisibleby:2 %}
-            <div class="col-lg-6">
+            <div class="col-lg-6 d-flex justify-content-center align-items-center">
                 <img src="{{ TopContent.photo.url }}" class="img-fluid rounded" style="object-fit: cover;max-height: 400px;" alt="Diyetisyen">
             </div>
             <div class="col-lg-6 text-end">
@@ -24,11 +24,11 @@
                 <div class="content-div">{{ TopContent.content|safe }}</div>
             </div>
         {% else %}
-            <div class="col-lg-6">
+            <div class="col-lg-6 ">
                 <h2 class="mb-3">{{ TopContent.title }}</h2>
                 <div class="content-div">{{ TopContent.content|safe }}</div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 d-flex justify-content-center align-items-center">
                 <img src="{{ TopContent.photo.url }}" class="img-fluid rounded" style="object-fit: cover;max-height: 400px;" alt="Diyetisyen">
             </div>
         {% endif %}
