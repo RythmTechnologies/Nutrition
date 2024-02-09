@@ -33,7 +33,10 @@ ALLOWED_HOSTS = [
     "http://www.dytsedanurciray.com.tr",
     "www.dytsedanurciray.com.tr",
     "https://www.dytsedanurciray.com.tr",
-    "dytsedanurciray.com.tr"]
+    "dytsedanurciray.com.tr",
+    "dytsedanurciray.com",
+    "https://dytsedanurciray.com",
+    "http://dytsedanurciray.com"]
 
 
 # Application definition
