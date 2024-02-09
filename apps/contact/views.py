@@ -6,6 +6,9 @@ from dietetic import settings
 from django.core.mail import EmailMessage
 import os
 
+STATIC_URL = 'staticfiles/static/'
+
+
 def contact_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -30,12 +33,12 @@ def contact_view(request):
                 to=[contact.email]
                     )
             email.content_subtype = "html"
-            attachment_path = os.path.join(settings.STATIC_URL, 'logo/logo-seda.png')
+            attachment_path = os.path.join(STATIC_URL, 'logo/logo-seda.png')
             if attachment_path:
                 email.attach_file(attachment_path)
             email.send()
 
-            # admine mail 
+            # admine mail
             email_to_admin = EmailMessage(
                 subject=f'Yeni İletişim Formu Mesajı: {contact.name}',
                 body=f'Mesaj: {contact.message}\nE-posta: {contact.email}\nTarih: {contact.appointment_date}\nSaat: {contact.appointment_time}\nRandevu Türü: {contact.appointment_type}',
@@ -45,10 +48,10 @@ def contact_view(request):
 
 
             email_to_admin.send()
-            
-           
+
+
             messages.success(request, 'Mesajınız başarıyla gönderildi.')
-            return redirect('iletisim')  
+            return redirect('iletisim')
         else:
             messages.error(request, 'Formu gönderirken bir hata oluştu. Lütfen tekrar deneyin.')
     else:

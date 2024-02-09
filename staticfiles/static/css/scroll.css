@@ -1,35 +1,35 @@
 body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-  }
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
 /* Tema için genel renkler */
 .light-theme {
-    --navbar-bg-color: #ffffff; /* Açık tema için navbar arka plan rengi */
-    --navbar-item-color: #000000; /* Açık tema için navbar öğe rengi */
-  }
-  
-  .dark-theme {
-    --navbar-bg-color: #343a40; /* Koyu tema için navbar arka plan rengi */
-    --navbar-item-color: #ffffff; /* Koyu tema için navbar öğe rengi */
-  }
-  
-  /* Navbarın scroll ile değişen rengi */
-  .navbar-scrolled {
-    transition: background-color 0.3s;
-  }
-  
-  .nav-link, .navbar-brand {
-    transition: color 0.3s;
-  }
-  
-  /* Dinamik renk atamaları */
-  .navbar-custom {
-    background-color: var(--navbar-bg-color);
-  }
-  
-  .navbar-custom .nav-link, .navbar-custom .navbar-brand {
-    color: var(--navbar-item-color);
-  }
+  --navbar-bg-color: #ffffff; /* Açık tema için navbar arka plan rengi */
+  --navbar-item-color: #000000; /* Açık tema için navbar öğe rengi */
+}
+
+.dark-theme {
+  --navbar-bg-color: #343a40; /* Koyu tema için navbar arka plan rengi */
+  --navbar-item-color: #ffffff; /* Koyu tema için navbar öğe rengi */
+}
+
+/* Navbarın scroll ile değişen rengi */
+.navbar-scrolled {
+  transition: background-color 0.3s;
+}
+
+.nav-link, .navbar-brand {
+  transition: color 0.3s;
+}
+
+/* Dinamik renk atamaları */
+.navbar-custom {
+  background-color: var(--navbar-bg-color);
+}
+
+.navbar-custom .nav-link, .navbar-custom .navbar-brand {
+  color: var(--navbar-item-color);
+}
 .active{
-    font-weight: bolder !important;
+  font-weight: bolder !important;
 }

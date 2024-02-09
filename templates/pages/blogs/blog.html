@@ -13,14 +13,14 @@
     <div class="flex-grow-1 overflow-hidden">
       <h3  class="fst-italic lh-sm fs-1 link-body-emphasis mb-1">{{blog.title}}</h3>
       <p class="text-muted mt-auto">{{blog.short_content|truncatewords:30}}</p>
-    
+
     </div>
     <p class="blog-post-meta">{{blog.created_at}} <a href="#"> - {{blog.author}}</a></p>
 
   </div>
   <div class="col-md-4 d-flex align-items-center">
     <img src={{blog.image.url}} height="75%" alt="">
-    
+
   </div>
  </div>
 
@@ -31,7 +31,7 @@
     <div>
       {{blog.description|safe}}
     </div>
-    
+
   </article>
 </div>
 
