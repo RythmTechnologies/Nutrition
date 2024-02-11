@@ -10,6 +10,7 @@ class ContactForm(forms.ModelForm):
             'email': forms.EmailInput(attrs={'class': 'form-control','placeholder': 'emailiniz'}),
             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Telefon Numaranız '}),
             'message': forms.Textarea(attrs={'class': 'form-control','placeholder': 'mesajınız'}),
+            
             'appointment_date': forms.DateInput(attrs={'class': 'form-control flatpickr-date','placeholder': 'Randevu Tarihiniz.'}),
             'appointment_time': forms.TimeInput(attrs={'class': 'form-control flatpickr-time','placeholder': 'randevu Saatiniz.'}),
             'appointment_type': forms.Select(attrs={'class': 'form-control','placeholder': 'görüşme türü'}),

@@ -1,10 +1,10 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-from apps.diet_app.mixin import TimeBasedStampModel
+from apps.diet_app.mixin import TimeBasedStampModel, MyS3Storage
 
 class AboutMe(TimeBasedStampModel):
     bio = RichTextField(("Hakkımda içerik"))
-    image = models.ImageField(upload_to="about/", verbose_name="Profil Fotoğrafı")
+    image = models.ImageField(upload_to="about/",storage=MyS3Storage(), verbose_name="Profil Fotoğrafı")
 
     def __str__(self):
         return self.bio
