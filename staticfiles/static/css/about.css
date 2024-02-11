@@ -1,0 +1,37 @@
+
+.carousel-inner img {
+  max-height: 50vh;
+  width: 100%; /* Resimlerin genişliğini ayarlar */
+  height: auto; /* Resimlerin yüksekliğini orantılı tutar */
+}
+
+
+svg {
+  height: 65vmin;
+  border: 1px solid #eee;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px 3px #ccc;
+}
+
+text {
+  text-anchor: middle;
+  dominant-baseline: central;
+  font-family: 'Permanent Marker';
+  font-size: 3em;
+}
+
+
+.dark-skin {
+  fill: #efab7d;
+}
+.light-skin {
+  fill: #ffb682;
+}
+.cloth {
+  fill: #af153a;
+}
+.black {
+  fill: #1e0c11;
+}
+#checkbox1{pointer-events:none;}
