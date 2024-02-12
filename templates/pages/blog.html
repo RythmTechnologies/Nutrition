@@ -7,7 +7,7 @@ Blog
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/blog.css' %}">
   <div class="row mx-0 p-0 justify-content-center mt-5 ">
-    <img src="https://media.discordapp.net/attachments/1101190679402659910/1203047122463883264/Group_1.png?ex=65cfabf1&is=65bd36f1&hm=75c663b5962ad34dc2a1d2c9dbcf0502927d5e6ba2b5ec1891fe715bb816d89b&=&format=webp&quality=lossless&width=2162&height=720" class="rounded-5 mb-5" alt="Banner Bulunamadı">
+    <img src="https://media.discordapp.net/attachments/1101190679402659910/1203047122463883264/Group_1.png?ex=65cfabf1&is=65bd36f1&hm=75c663b5962ad34dc2a1d2c9dbcf0502927d5e6ba2b5ec1891fe715bb816d89b&=&format=webp&quality=lossless&width=2162&height=720" class="rounded-5 mb-5" alt="Diyetisyen Banner">
   </div>
 
   <section class="mb-5 mt-5">
@@ -15,7 +15,7 @@ Blog
       {% for blog in blogs %}
       <article class="postcard dark blue">
         <a class="postcard__img_link" href="{% url 'blog-icerik' blog.slug %}">
-          <img class="postcard__img" src="{{blog.image.url}}" alt="Image Title" />
+          <img class="postcard__img" src="{{blog.image.url}}" alt="Diyetisyen Blog" />
         </a>
         <div class="postcard__text">
           <h1 class="postcard__title blue"><a  class=" mx-1" href={% url "blog-icerik" blog.slug %}>{{blog.title}}</a></h1>

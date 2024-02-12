@@ -13,7 +13,7 @@
     <div class="row p-0 mx-0 justify-content-center align-item-center my-5">
     {% for about_content in AboutContents %}
         <div class="col-md-6">
-            <img src="{{ about_content.image.url }}" style="max-width: 500px; height: calc(minmax);" class="d-block w-100 rounded" alt="...">
+            <img src="{{ about_content.image.url }}" style="max-width: 500px; height: calc(minmax);" class="d-block w-100 rounded" alt="Diyetisyen Hakkında">
         </div>
         <div class="col-md-6 text-break">
             <p>{{ about_content.bio|safe }}</p>
@@ -31,9 +31,17 @@
        <div class="row px-0 mx-0 py-5">
         <div class="col-md-6 mt-4">
             <h3 class="mb-3">Neden Beni Tercih Etmelisiniz?</h3>
-            <p>[Diyetisyen olarak benzersiz yönleriniz, hastalarınıza nasıl yardımcı olduğunuz, danışanların başarı hikayeleri].</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis ipsum hic cumque harum! Rerum aut similique a doloremque iure sint, dolor laudantium! Aut velit iure quasi quibusdam ullam quisquam expedita culpa, laborum ipsum illo reprehenderit quas necessitatibus harum, magni rem. Optio quasi, ex cum earum eveniet numquam aut nemo officiis!</p>
-        </div>
+            <ul style="list-style:disc;">
+                <li><strong>Kişiselleştirilmiş Planlar</strong>: Her bireyin farklı olduğunu bilerek, size özel beslenme planları hazırlıyorum.</li>
+                <li><strong>Bilimsel Bilgi</strong>: Güncel araştırmalara dayalı, kanıtlanmış yöntemlerle danışmanlık yapıyorum.</li>
+                <li><strong>Sürekli Destek</strong>: Motivasyonunuzun ve başarınızın sürekli yanınızda olması için destek sağlıyorum.</li>
+                <li><strong>Kanıtlanmış Başarılar</strong>: Gerçek başarı hikayeleriyle, hedeflerinize ulaşmanızda nasıl bir fark yaratabileceğimi gösteriyorum.</li>
+                
+            </ul>
+            <p>
+                Kısacası, sağlıklı yaşam hedeflerinize ulaşmanız için bilgi, destek ve kişisel bir rehberlik sunuyorum.
+            </p>
+            </div>
         <div class="col-md-6 text-center">
 
             <svg id="svg" viewBox="-40 -150 500 1200">
@@ -209,23 +217,32 @@
 
     <!-- Hizmetler Bölümü -->
 <section class="shadow-lg rounded-2">
-    <div class="row px-0 mx-0 justify-content-center my-5 py-5">
+    <div class="row px-0 mx-0 justify-content-center my-5 py-5 ">
         <h3 class="text-center my-5 fs-2 fw-bold">Sertifikalar&Lisans </h3>
-        <div class="col-md-6">
-            <img src="{% static 'images/diyet.jpg' %}" alt="Diyetisyenin Fotoğrafı" class="img-fluid rounded mb-4">
+        <div class="col-md-6 text-center">
+            <img style="height: 400px;" src="{% static 'images/sertifica_image.jpg' %}" alt="Diyetisyen Fotoğrafı" class=" rounded mb-4">
         </div>
         <div class="col-md-6">
-            <ul class="list-group list-group-flush">
-               {% for sertifica in AboutSertifica %}
-                {{sertifica.content|safe}}
-
-                {% empty %}
-                        <p class="text-center">Sertifika bilgisi bulunamadı.</p>
-                {% endfor %}
+            <div class="owl-carousel owl-theme">
+                {% for sertifica in AboutSertifica %}
+                <div class="item d-flex justify-content-center ">
+                    <div class="card w-75 p-3">
+                      <div class="card-body">
+                        <h5 class="card-title fw-bold">{{sertifica.header}}</h5>
+                        <p class="card-text ">{{sertifica.content|safe}}</p>
+                        <span class="fw-normal"><strong>Sertifika Alınma Tarihi:</strong> {{sertifica.sertifica_date}}</span>
+                      </div>
+                    </div>
                 </div>
+                {% empty %}
+                <p class="text-center">Sertifika bilgisi bulunamadı.</p>
+                {% endfor %}
+            </div>
+            </div>
         </div>
     </section>
 </div>
 
 <script src={% static "js/about.js" %}></script>
+<script src={% static "js/about_sertifica.js" %}></script>
 {% endblock content %}
