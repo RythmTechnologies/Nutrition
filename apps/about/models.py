@@ -14,8 +14,9 @@ class AboutMe(TimeBasedStampModel):
         return self.bio
 
 class Sertifica(TimeBasedStampModel):
-    header = models.CharField(("sertifika başlık"), max_length=50)
-    content = RichTextField(("sertifika içerik"))
+    header = models.CharField(("Sertifika Başlık"), max_length=50)
+    content = RichTextField(("Sertifika İçerik"))
+    sertifica_date = models.DateField(("Sertifika Alınma Tarihi"), auto_now=False, auto_now_add=False)
 
     class Meta:
         verbose_name = "Sertifika"
