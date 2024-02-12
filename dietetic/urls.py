@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from django.urls import path
 from apps.diet_app.sitemap import BlogSitemap, AboutSitemap, ContactSitemap, ServiceSitemap
+from apps.diet_app.mixin import robots_txt
 
 sitemaps = {
     'blogs': BlogSitemap,
@@ -22,6 +23,7 @@ urlpatterns = [
     path('blog/',include('apps.blog.urls')),
     path('iletisim/',include('apps.contact.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('robots.txt', robots_txt),
 ]
 
 if settings.DEBUG:
