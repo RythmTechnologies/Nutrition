@@ -3,6 +3,15 @@
 
 
 {% block title %}Ana Sayfa{% endblock title %}
+{% block seo %}
+  {% if seo %}
+    {% for x in  seo %}
+      <meta name="description" content="{{ x.meta_description }}">
+      <meta name="keywords" content="{{ x.meta_keywords }}">
+    {% endfor %}
+  {% endif %}
+{% endblock seo %}
+
 
 {% block content %}
 
