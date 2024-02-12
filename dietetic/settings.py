@@ -36,7 +36,10 @@ ALLOWED_HOSTS = [
     "dytsedanurciray.com.tr",
     "dytsedanurciray.com",
     "https://dytsedanurciray.com",
-    "http://dytsedanurciray.com"]
+    "https://www.dytsedanurciray.com",
+    "http://dytsedanurciray.com",
+    "http://www.dytsedanurciray.com",
+    "www.dytsedanurciray.com"]
 
 
 # Application definition
@@ -48,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sitemaps',
     'django.contrib.staticfiles',
     'apps.diet_app',
     'apps.about',
@@ -58,6 +62,7 @@ INSTALLED_APPS = [
     'apps.google_comment',
     'apps.social',
     'phonenumber_field',
+    'apps.seo',
     'storages',
 ]
 
@@ -145,6 +150,13 @@ DATABASES = {
         "PORT": 5432,
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation

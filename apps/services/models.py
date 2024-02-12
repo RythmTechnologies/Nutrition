@@ -7,14 +7,10 @@ class Services(TimeBasedStampModel):
   title = models.CharField(("Başlık"), max_length=50)
   description = models.TextField(("İçerik Yazısı"),max_length=150)
   image = models.ImageField(("Banner Resim"), upload_to="services",storage = MyS3Storage(), height_field=None, width_field=None, max_length=None)
-  slug = AutoSlugField(
-        populate_from="title", editable=False, always_update=True, blank=True
-    )
 
+  def __str__(self) -> str:
+      return self.title
 
   class Meta:
     verbose_name = 'Hizmet'
     verbose_name_plural = 'Hizmetler'
-
-  def __str__(self) -> str:
-      return self.title
