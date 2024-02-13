@@ -1,6 +1,5 @@
 from django.db import models
 from apps.diet_app.mixin import TimeBasedStampModel, MyS3Storage
-from autoslug import AutoSlugField
 
 # Services Model ORM Start
 class Services(TimeBasedStampModel):

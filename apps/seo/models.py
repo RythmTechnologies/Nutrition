@@ -9,3 +9,6 @@ class Seo(TimeBasedStampModel):
   def __str__(self) -> str:
       return self.meta_description
 
+  class Meta:
+     verbose_name = "Seo"
+     verbose_name_plural = "Seo Bilgileri"

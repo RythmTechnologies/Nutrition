@@ -1,7 +1,8 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from apps.diet_app.mixin import TimeBasedStampModel
-# Create your models here.
+
+
 class Contact(TimeBasedStampModel):
     name = models.CharField(max_length=100, verbose_name="Ad")
     email = models.EmailField(verbose_name="E-posta")

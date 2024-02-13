@@ -39,7 +39,7 @@ ALLOWED_HOSTS = [
     "https://www.dytsedanurciray.com",
     "http://dytsedanurciray.com",
     "http://www.dytsedanurciray.com",
-    "www.dytsedanurciray.com"]
+    "www.dytsedanurciray.com",]
 
 
 # Application definition
@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'apps.services',
     'apps.blog',
     'apps.contact',
-    'ckeditor',
+    'tinymce',
     'apps.google_comment',
     'apps.social',
     'phonenumber_field',
@@ -226,16 +226,77 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/'),
 ]
 
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'basic',
-
-    },
-}
-
 
 # CKEDITOR
-CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+# CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+# CKEDITOR_CONFIGS = {
+#     'default': {
+#         'toolbar': 'basic',
+
+#     },
+# }
+
+
+# TinyMCE Config
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 768,
+    'width': '100%',
+    'cleanup_on_startup': False,
+    'custom_undo_redo_levels': 20,
+    'selector': 'textarea',
+    'theme': 'silver',
+    'plugins': [
+        'advlist autolink lists link image photo charmap print preview hr anchor pagebreak',
+        'searchreplace wordcount visualblocks visualchars code fullscreen',
+        'insertdatetime media nonbreaking save table directionality',
+        'emoticons template paste textpattern imagetools codesample toc help'
+    ],
+    'toolbar1': '''
+            fullscreen preview bold italic underline | fontselect |
+            fontsizeselect  | forecolor backcolor | alignleft alignright |
+            aligncenter alignjustify | indent outdent | bullist numlist table |
+            | link image media | codesample | photo
+            ''',
+    'toolbar2': '''
+            visualblocks visualchars |
+            charmap hr pagebreak nonbreaking anchor |  code |
+            insertdatetime print spellchecker | ltr rtl |
+            ''',
+    'image_advtab': True,
+    'templates': [
+        {'title': 'Test template 1', 'content': 'Test 1'},
+        {'title': 'Test template 2', 'content': 'Test 2'}
+    ],
+    'content_css': [
+        '//www.tiny.cloud/css/codepen.min.css'
+    ],
+    'content_style': """
+        body { font-family:Helvetica,Arial,sans-serif; font-size:14px }
+    """,
+    'body_class': '',
+    'style_formats': [
+        {'title': 'Başlıklar', 'items': [
+            {'title': 'Başlık 1', 'format': 'h1'},
+            {'title': 'Başlık 2', 'format': 'h2'},
+            {'title': 'Başlık 3', 'format': 'h3'},
+            {'title': 'Başlık 3', 'format': 'h4'},
+            {'title': 'Başlık 3', 'format': 'h5'},
+            {'title': 'Başlık 3', 'format': 'h6'},
+        ]},
+        {'title': 'Yazı Tipleri', 'items': [
+            {'title': 'Kalın', 'icon': 'bold', 'format': 'bold'},
+            {'title': 'İtalik', 'icon': 'italic', 'format': 'italic'},
+            {'title': 'Altı Çizili', 'icon': 'underline', 'format': 'underline'}
+        ]},
+        {'title': 'Yazı Boyutu', 'items': [
+            {'title': 'Küçük', 'format': 'small'},
+            {'title': 'Normal', 'format': 'p'},
+            {'title': 'Büyük', 'format': 'big'}
+        ]}
+    ],
+    'importcss_append': True,
+}
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
