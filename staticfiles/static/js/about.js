@@ -1,3 +1,5 @@
+
+
 const spring = 0.2;
 const friction = 0.75;
 let pairs = [];
@@ -11,7 +13,7 @@ class pathsPair {
     this.target = this.getArgsRy(fat);
     this.vel = this.initRy();
   }
-
+  
   initRy(){
     let Ry = [];
     this.vals.map((t) =>{
@@ -23,7 +25,7 @@ class pathsPair {
     });
     return Ry;
   }
-
+  
   getArgsRy(path) {
     let d = path.getAttribute("d").replace(/\r?\n|\r/g, ""); //remove breaklines
     if (d.charAt(0) == "m") {
@@ -50,24 +52,24 @@ class pathsPair {
       for(let i = 0; i < argRy.length; i++){
         argRy[i] = parseFloat(argRy[i]);
       }
-
+      
       argRy.unshift(arg[0]);
       ArgsRy.push(argRy);
     });
 
     return ArgsRy;
   }
-
+  
   morph(){
     let newD = "";
-
+    
     this.vals.map((v,vi) =>{
-
+      
       let newStr = v[0];
       for(let i = 1; i < v.length; i++){
-
+       
         this.updateProp(vi,i);
-
+        
         newStr += v[i].toFixed(3) + " "
       }
       newD += newStr+" ";
@@ -75,7 +77,7 @@ class pathsPair {
    this.path.setAttributeNS(null,"d", newD);
    //console.log(newD);
   }
-
+  
   updateProp(vi,i) {// reescribir 2 array anidados!!!!!
     let dist  = this.target[vi][i] - this.vals[vi][i];
     let acc = dist * spring;
@@ -83,10 +85,10 @@ class pathsPair {
     this.vel[vi][i] *= friction;
     this.vals[vi][i] += this.vel[vi][i];
     //this.reStyle();
-    }
-
+    } 
+   
   goFat(){this.target = this.getArgsRy(this.fat)}
-
+  
   goFit(){this.target = this.getArgsRy(this.thin)}
 }
 
@@ -106,8 +108,8 @@ function Frame() {
 rid = window.requestAnimationFrame(Frame);
 
 pairs.map((pair) => pair.morph());
-
-
+  
+  
 if(pairs[0].target[7][6] - pairs[0].vals[7][6] == 0){
   window.cancelAnimationFrame(rid); rid = null;
 }
@@ -134,3 +136,8 @@ element.addEventListener("mouseout", function() {
   pairs.map((pair) => pair.goFat());
   Frame();
 });
+
+
+
+
+
