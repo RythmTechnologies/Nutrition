@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path,include, re_path
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
@@ -7,6 +7,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.urls import path
 from apps.diet_app.sitemap import BlogSitemap, AboutSitemap, ContactSitemap, ServiceSitemap
 from apps.diet_app.mixin import robots_txt
+from apps.diet_app.views import notfound
 
 sitemaps = {
     'blogs': BlogSitemap,
@@ -24,6 +25,7 @@ urlpatterns = [
     path('iletisim/',include('apps.contact.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', robots_txt),
+    re_path(r'^.*/$', notfound, name="404"),
 ]
 
 if settings.DEBUG:
