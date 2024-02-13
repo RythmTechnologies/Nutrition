@@ -18,14 +18,14 @@ Blog
         <div class="card p-0 mb-3 shadow-lg" style="max-width: 650px;">
           <div class="row g-0">
             <div class="col-md-5">
-              <img src={{blog.image.url}} class="img-fluid rounded-4 p-2" alt="...">
+              <img src={{blog.image.url}} class="img-fluid rounded-4 p-2" alt="Diyetisyen">
             </div>
             <div class="col-md-7">
               <div class="card-body">
-                <h5 class="card-title m-0">Card title</h5>
+                <h5 class="card-title m-0">{{blog.title}}</h5>
                 <span class="badge bg-warning mb-2">{{blog.author}}</span>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text">{{blog.short_content}}</p>
+                <p class="card-text"><small class="text-muted">{{blog.created_at}}</small></p>
               </div>
               <p><a href={% url "blog-icerik" blog.slug %}>devamını oku..</a></p>
             </div>
@@ -36,16 +36,16 @@ Blog
           <div class="row g-0 ">
             <div class="col-md-7">
               <div class="card-body">
-                <h5 class="card-title m-0">Card title</h5>
+                <h5 class="card-title m-0">{{blog.title}}</h5>
                 <span class="badge bg-warning mb-2">{{blog.author}}</span>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text">{{blog.short_content}}</p>
+                <p class="card-text"><small class="text-muted">{{blog.created_at}}</small></p>
               </div>
+              <p><a href={% url "blog-icerik" blog.slug %}>devamını oku..</a></p>
             </div>
             <div class="col-md-5">
-              <img src={{blog.image.url}} class="img-fluid rounded-4 p-2" alt="...">
+              <img src={{blog.image.url}} class="img-fluid rounded-4 p-2" alt="Diyetisyen">
             </div>
-            
           </div>
         </div>
         
