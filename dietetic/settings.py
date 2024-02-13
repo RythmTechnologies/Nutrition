@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'apps.services',
     'apps.blog',
     'apps.contact',
-    'ckeditor',
+    'tinymce',
     'apps.google_comment',
     'apps.social',
     'phonenumber_field',
