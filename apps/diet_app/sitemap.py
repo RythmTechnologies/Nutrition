@@ -4,9 +4,21 @@ from apps.about.models import AboutMe
 from apps.blog.models import Blog
 from apps.contact.models import Contact
 from apps.services.models import Services
-
+from .models import TopContent
 
 #Seo All Models
+class HomeSitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.9
+
+    def items(self):
+        return TopContent.objects.all().order_by('-created_at')
+
+    def lastmod(self, obj):
+        return obj.created_at
+
+    def location(self, obj):
+        return reverse('home')
 class BlogSitemap(Sitemap):
     changefreq = "weekly"
     priority = 0.9
@@ -19,6 +31,18 @@ class BlogSitemap(Sitemap):
 
     def location(self, obj):
         return reverse('blog-icerik', args=[obj.slug])
+class AllBlogSitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.9
+
+    def items(self):
+        return Blog.objects.all().order_by('-created_at')
+
+    def lastmod(self, obj):
+        return obj.created_at
+
+    def location(self, obj):
+        return reverse('blog')
 
 class AboutSitemap(Sitemap):
     changefreq = "weekly"
