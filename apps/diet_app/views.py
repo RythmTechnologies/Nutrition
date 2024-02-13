@@ -4,8 +4,9 @@ from apps.blog.models import Blog
 from apps.social.models import SocialMedia
 from apps.google_comment.models import GoogleComment
 from apps.seo.models import Seo
-# Create your views here.
-def index(request):
+from .mixin import HttpResponse, HttpRequest
+
+def index(request: HttpRequest) -> HttpResponse:
     context={}
 
     Topcontent = TopContent.objects.all()
@@ -19,9 +20,13 @@ def index(request):
 
     return render(request, 'index.html',context)
 
-def footer_context(request):
+def footer_context(request: HttpRequest) -> HttpResponse:
     socialmedia=SocialMedia.objects.all()
     context = {}
     context['socialmedia'] = socialmedia
 
     return context
+
+
+def notfound(request: HttpRequest) -> HttpResponse:
+    return render(request, "404.html")
