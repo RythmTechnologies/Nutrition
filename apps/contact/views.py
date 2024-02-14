@@ -32,7 +32,7 @@ def contact_view(request):
                 to=[contact.email]
                     )
             email.content_subtype = "html"
-            attachment_path = os.path.join(STATIC_URL, 'logo/logo-seda.png')
+            attachment_path = os.path.join(STATIC_URL, 'logo/logo-seda.webp')
             if attachment_path:
                 email.attach_file(attachment_path)
             email.send()
@@ -44,7 +44,6 @@ def contact_view(request):
                 from_email=settings.EMAIL_HOST_USER,
                 to=[settings.EMAIL_HOST_USER]  # Yönetici e-posta adresi
             )
-
 
             email_to_admin.send()
 
