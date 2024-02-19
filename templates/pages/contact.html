@@ -4,6 +4,11 @@
 {% block title %}Diyetisyenin ile İletişime geç!{% endblock title %}
 
 {% block content %}
+<style>
+.flatpickr-time::placeholder {
+  text-align: left;
+}
+</style>
 <link rel="stylesheet" href="{% static 'css/contact.css' %}">
 <div class="container my-5">
     {% if messages %}
