@@ -13,21 +13,35 @@ def contact_view(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             contact=form.save()
-            # kullanıcıya mail
-            email = EmailMessage(
-                subject='Mesajınız Alındı',
-                body = f'''
+            if contact.appointment_date and contact.appointment_time and contact.appointment_type:
+                 body = f'''
                     <html>
                         <head></head>
                         <body>
-                            <p>Merhaba {contact.name},</p>
-                            <p>Randevunuz  başarıyla alınmıştır..</p>
-                            <p>Randevunuz  {contact.appointment_date} tarihinde {contact.appointment_time} saatinde {contact.appointment_type} olacaktır.</p>
-                            <p>Sorularınız veya ek bilgi ihtiyacınız olursa, lütfen bizimle iletişime geçmekten çekinmeyin.</p>
-                            <p>Teşekkürler,<br>Diyetisyen Seda Nur Çıray</p>
+                                <p>Merhaba {contact.name},</p>
+                                <p>Randevunuz başarıyla alınmıştır.</p>
+                                <p>Randevunuz {contact.appointment_date} tarihinde {contact.appointment_time} saatinde {contact.appointment_type} olacaktır.</p>
+                                <p>Sorularınız veya ek bilgi ihtiyacınız olursa, lütfen bizimle iletişime geçmekten çekinmeyin.</p>
+                                <p>Teşekkürler,<br>Diyetisyen Seda Nur Çıray</p>
                         </body>
                     </html>
-                    ''',
+                    '''
+            body = f'''
+                <html>
+                    <head></head>
+                    <body>
+                        <p>Merhaba {contact.name},</p>
+                        <p>İletişim formunuz iletildi.Sizinle Telefon numaranız üzerinden iletişime geçilecektir.</p>
+                        <p>Sorularınız veya ek bilgi ihtiyacınız olursa, lütfen bizimle tekrar iletişime geçmekten çekinmeyin.</p>
+                        <p>Teşekkürler,<br>Diyetisyen Seda Nur Çıray</p>
+                    </body>
+                </html>
+            '''
+
+            # kullanıcıya mail
+            email = EmailMessage(
+                subject='Mesajınız Alındı',
+                body=body,
                 from_email=settings.EMAIL_HOST_USER,
                 to=[contact.email]
                     )

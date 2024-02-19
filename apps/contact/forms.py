@@ -11,9 +11,9 @@ class ContactForm(forms.ModelForm):
             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Telefon Numaranız '}),
             'message': forms.Textarea(attrs={'class': 'form-control','placeholder': 'mesajınız'}),
             
-            'appointment_date': forms.DateInput(attrs={'class': 'form-control flatpickr-date','placeholder': 'Randevu Tarihiniz.'}),
-            'appointment_time': forms.TimeInput(attrs={'class': 'form-control flatpickr-time','placeholder': 'randevu Saatiniz.'}),
-            'appointment_type': forms.Select(attrs={'class': 'form-control','placeholder': 'görüşme türü'}),
+            'appointment_date': forms.DateInput(attrs={'class': 'form-control flatpickr-date','placeholder': 'Seçiniz.'}),
+            'appointment_time': forms.TimeInput(attrs={'class': 'form-control flatpickr-time','placeholder': 'Seçiniz.'}),
+            'appointment_type': forms.Select(attrs={'class': 'form-control'}),
         }
     def __init__(self, *args, **kwargs):
         super(ContactForm, self).__init__(*args, **kwargs)
