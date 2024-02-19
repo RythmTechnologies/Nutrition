@@ -26,17 +26,18 @@ def contact_view(request):
                         </body>
                     </html>
                     '''
-            body = f'''
-                <html>
-                    <head></head>
-                    <body>
-                        <p>Merhaba {contact.name},</p>
-                        <p>İletişim formunuz iletildi.Sizinle Telefon numaranız üzerinden iletişime geçilecektir.</p>
-                        <p>Sorularınız veya ek bilgi ihtiyacınız olursa, lütfen bizimle tekrar iletişime geçmekten çekinmeyin.</p>
-                        <p>Teşekkürler,<br>Diyetisyen Seda Nur Çıray</p>
-                    </body>
-                </html>
-            '''
+            else:
+                body = f'''
+                    <html>
+                        <head></head>
+                        <body>
+                            <p>Merhaba {contact.name},</p>
+                            <p>İletişim formunuz iletildi.Sizinle Telefon numaranız üzerinden iletişime geçilecektir.</p>
+                            <p>Sorularınız veya ek bilgi ihtiyacınız olursa, lütfen bizimle tekrar iletişime geçmekten çekinmeyin.</p>
+                            <p>Teşekkürler,<br>Diyetisyen Seda Nur Çıray</p>
+                        </body>
+                    </html>
+                '''
 
             # kullanıcıya mail
             email = EmailMessage(
