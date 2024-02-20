@@ -58,6 +58,7 @@
       <hr>
       <ul class="list-unstyled text-center">
         {% for blog in blogs|slice:":3" %}
+        <a href="{% url 'blog-icerik' blog.slug %}">
         <div class="row  my-2 justify-content-center">
           <div class="col-md-6 justify-content-center">
             <img src="{{blog.image.url}}" height="100px" style="max-width: 150px;object-fit: cover;" class="rounded" alt="Diyetisyen Blog">
@@ -65,10 +66,9 @@
           <div class="col-md-6 justify-content-center">
             <h5 class="mb-0">{{blog.title}}</h5>
             <small class="text-body-secondary">{{blog.created_at}}</small>
-
           </div>
         </div>
-
+      </a>
         {% endfor %}
       </ul>
     </div>
